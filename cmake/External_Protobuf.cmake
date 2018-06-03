@@ -57,7 +57,7 @@ function(mchbuild_external_package)
   find_package(bash REQUIRED)
 
   set(PROTOBUF_PROTOC "${install_dir}/bin/protoc")
-  set(PROTOBUF_LIBPROTOBUF_PATH "${install_dir}/lib")
+  set(PROTOBUF_LIBPROTOBUF_PATH "${install_dir}/lib64")
   set(PROTOBUF_PYTHON_SOURCE "${source_dir}/python")
   set(PROTOBUF_PYTHON_INSTALL "${install_dir}")
   set(PROTOBUF_CMAKE_EXECUTABLE "${CMAKE_COMMAND}")
@@ -101,6 +101,6 @@ function(mchbuild_external_package)
   )
 
   ExternalProject_Get_Property(protobuf install_dir)
-  set(Protobuf_DIR "${install_dir}/lib/cmake/protobuf" CACHE INTERNAL "")
+  set(Protobuf_DIR "${install_dir}/lib64/cmake/protobuf" CACHE INTERNAL "")
 
 endfunction()
