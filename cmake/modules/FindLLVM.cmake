@@ -140,7 +140,9 @@ if (LLVM_FOUND)
   )
   string(REPLACE " " ";" _llvmLibs ${_llvmLibs})
   foreach(lib ${_llvmLibs})
-    list(APPEND LLVM_LIBS "${lib}")
+    if(NOT lib MATCHES ".*gtest.*")
+      list(APPEND LLVM_LIBS "${lib}")
+    endif()
   endforeach()
 
   execute_process(
